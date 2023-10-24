@@ -1,0 +1,23 @@
+server.port: 0
+spring.datasource:
+  url: 'jdbc:h2:mem:testdb'
+  username: 'sa'
+  password: '' 
+  driverClassName: 'org.h2.Driver'
+spring.jpa:
+  show-sql: true
+  hibernate.ddl-auto: create-drop
+  database: h2
+  database-platform: org.hibernate.dialect.H2Dialect
+
+spring.sql.init:
+  mode: always 
+  platform: h2
+
+spring:
+  profiles:
+    active: test
+  
+spring.flyway:
+  baselineOnMigrate: true
+  locations: 'src/main/resources/db/migration'

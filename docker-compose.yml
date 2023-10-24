@@ -1,0 +1,24 @@
+version: '2.17'
+
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: admin1234
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+  demo-junit-test:
+    image: demo-jmeter:0.0.2
+    build:
+      context: /demo-jmeter
+      dockerfile: Dockerfile
+    ports:
+      - 8183:8083
+  demo-coingecko:
+    image: coingecko:0.0.2
+    build:
+      context: /coingecko/demo-coingecko
+      dockerfile: Dockerfile
+    ports:
+      - 8184:8084

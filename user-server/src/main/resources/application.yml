@@ -1,0 +1,25 @@
+server.port: 8081
+spring.datasource:
+  url: 'jdbc:postgresql://localhost:5432/postgres'
+  username: 'postgres'
+  password: 'A35675465'
+  driverClassName: 'org.postgresql.Driver'
+spring.jpa:
+  show-sql: true
+  hibernate.ddl-auto: update
+  database: postgresql
+  database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+spring.sql.init:
+  mode: always 
+  platform: h2
+
+spring:
+  profiles:
+    active: development
+
+spring.flyway:
+  group: true
+  baselineOnMigrate: true
+  locations: src/main/resources/db/migration
+
